@@ -1,0 +1,284 @@
+const termo = window.document.querySelector("#frente");
+const definicao = window.document.querySelector("#verso");
+const btnAdicionar = window.document.querySelector("#btnAdicionar");
+const btnGaleria = window.document.querySelector("#btnGaleria");
+const categoria = window.document.querySelector("#categoria");
+//Criei um array para adicionar os objetos que vão receber os valores dos cards criados
+let meusCards = [];
+
+//Adicione a propriedade categoria aos cards (Nova tarefa)
+function NovoCard(termo,definicao,categoria){
+    this.termo = termo.value;
+    this.definicao = definicao.value;
+    this.categoria = categoria.value
+
+}
+
+btnAdicionar.addEventListener("click", verificador);
+btnGaleria.addEventListener("click", exibirCards);
+
+function verificador(){
+    try {
+        if (termo.value == ""){
+            throw new Error;
+        } else {
+            let novo = new NovoCard(termo,definicao,categoria);
+            meusCards.push(novo);
+            const json = JSON.stringify(meusCards);
+            window.localStorage.setItem(categoria.value,json);
+        
+            categoria.value = "";
+            termo.value = "";
+            definicao.value = "";
+        }
+    } catch (error){
+        window.alert("Preencha a frente do card e tente novamente");
+    }
+
+}
+
+
+function exibirCards(){
+    const secao2 = window.document.createElement("div");
+    const container = window.document.createElement("div");
+    const divCategoria = window.document.createElement("div");
+    const divQuantidade = window.document.createElement("div");
+    const cabecalho = window.document.createElement("header");
+    const tituloCard = window.document.createElement("p");
+    const qtdCards = window.document.createElement("p");
+    const btnBackup = window.document.createElement("button");
+    const tagBackup = window.document.createElement("a");
+    const inputFiltro = window.document.createElement("input");
+    
+
+    btnBackup.addEventListener("click", exportarBackup);
+    inputFiltro.addEventListener("input", filtrarCards);
+
+
+    secao2.classList.add("classSecao2");
+    inputFiltro.classList.add("classFiltro");
+    container.classList.add("classGaleria");
+    cabecalho.classList.add("classHeader");
+    divCategoria.classList.add("classCategoria");
+    divQuantidade.classList.add("classQuantidade");
+    btnBackup.classList.add("classBackup");
+   
+    tituloCard.textContent = "Categoria";
+    qtdCards.textContent = "Qtd de Cards";
+    btnBackup.textContent = "BACKUP";
+    
+    inputFiltro.setAttribute("placeholder", "Filtar por categoria");
+    inputFiltro.setAttribute("type","text");
+
+
+    secao2.appendChild(inputFiltro);
+
+    cabecalho.appendChild(tituloCard);
+    cabecalho.appendChild(qtdCards);
+    secao2.appendChild(cabecalho);
+    console.log(btnBackup.textContent);
+
+
+
+    for (let i = 0; i < localStorage.length; i++ ){
+        const chave = localStorage.key(i);
+        const valor = localStorage.getItem(chave);
+        const valorObjeto = JSON.parse(valor);
+
+
+        divCategoria.innerHTML += `<p>${chave}</p>`; //-> Armazenar esse cara em uma variavel. usar a variavel como parametro da função de clique e só ai trabalhar com ela?
+        divQuantidade.innerHTML += `<p>${valorObjeto.length}</p>`;
+
+        
+    }
+
+    
+        
+    
+    container.appendChild(divCategoria);
+    container.appendChild(divQuantidade);
+    secao2.appendChild(container);
+    tagBackup.appendChild(btnBackup)
+    secao2.appendChild(tagBackup);
+    document.body.appendChild(secao2);
+
+    
+
+    function exportarBackup(){
+        let dados = "";
+        for (let contador = 0; contador < localStorage.length; contador++ ) {
+            const chave = localStorage.key(contador);
+            const valor = localStorage.getItem(chave);
+            dados += valor;
+            
+            
+        }
+        
+        let dadosFormatados = dados.split("]");
+        console.log(dadosFormatados);
+
+        const blobBackup = new Blob(dadosFormatados, {type: "text/plain"});
+        const ticket = URL.createObjectURL(blobBackup);
+        console.log(ticket);
+
+        tagBackup.setAttribute("href", ticket);
+        tagBackup.setAttribute("download", "backup.txt");
+
+        
+       setTimeout(() =>{
+        URL.revokeObjectURL(ticket)
+       }, 1000); //-> A ideia aq é liberar a memória após ter concluido o download
+
+
+    }
+
+    function filtrarCards(){
+
+        let indiceBusca;
+        let pCategoria = divCategoria.getElementsByTagName("p"); // -> Nessa linha ele me retorna um array com todos os paragrafos existentes na div categoria. 
+        let pQuantidade = divQuantidade.getElementsByTagName("p");
+
+        
+
+
+        let arrayCategoria = Array.from(pCategoria); // -> Aqui eu converto a variável p em um array para conseguir usar os métodos de array nele.
+        let arrayQuantidade = Array.from(pQuantidade);
+
+        
+
+
+        if (inputFiltro.value == ""){
+            arrayCategoria.map((elemento) =>{
+                return elemento.style.display = "block";
+            })
+
+            arrayQuantidade.map((elemento)=>{
+                return elemento.style.display = "block";
+            })
+            
+        } else{
+            let filtro = arrayCategoria.filter((elemento,indice) =>{
+
+            
+            return elemento.innerText.toLowerCase().includes(inputFiltro.value.toLowerCase());
+            //O filter me retorna um novo array somente com o elemento que o usuario digitou.
+
+            });
+            let buscaFinalizada = arrayCategoria.map((elemento,indice)=>{
+                if (elemento.innerText == filtro[0].innerText){
+                    elemento.style.display = "block";
+                    indiceBusca = indice;
+                    
+                } else {
+                    elemento.style.display = "none";
+                };
+                
+                
+                
+            });
+
+           arrayQuantidade.map((elemento,indice)=>{
+            
+                if(indice == indiceBusca){
+                    elemento.style.display = "block"
+                } else {
+                    elemento.style.display = "none";
+                }
+                    
+            });
+
+            
+        }
+    
+       
+    }
+
+    let pCategoria = divCategoria.getElementsByTagName("p")
+
+    let arrayCategoria = Array.from(pCategoria);
+
+    
+    arrayCategoria.forEach((elemento)=>{
+        elemento.addEventListener("click", estudarCards);
+        
+        
+
+    });
+
+    function estudarCards(event){
+        const secao3 = window.document.createElement("div");
+        const divCard = window.document.createElement("div");
+        let dadoParagrafo = event.currentTarget.innerText; //-> Aqui acesso o texto do paragrafo em que o user clicou. 
+
+        let cardString = localStorage.getItem(dadoParagrafo);
+        let cardFinalizado = JSON.parse(cardString);
+        console.log(cardFinalizado);
+        console.log(cardFinalizado.termo);
+
+
+        //Vou pegar os dados do localStorage em que a chave for igual ao dadoParagrafo, transformar em objeto, e aceesar a propriedade termo e definição, após isso exibir no paragrafo da divTexto.
+        //Agora tenho que dar um jeito de colocar isso como paragrafo da divTexto
+        
+
+        divCard.innerHTML = `
+        <div class="divtexto">
+        </div>
+        <div class="divBotoes">
+            <button id="btnProximo">PRÓXIMO</button>
+            <button>RESPOSTA</button>
+            <button>EXCLUIR</button> 
+        </div>`;
+        
+
+        divCard.classList.add("classDivCard");
+        secao3.classList.add("classSecao3")
+
+        secao3.appendChild(divCard);
+
+        document.body.appendChild(secao3);
+
+        console.log(divCard);
+        console.log("Deu certo");
+
+        const divTexto = divCard.querySelector(".divtexto");
+        const btnProximo = divCard.querySelector("#btnProximo");
+        let btnProximoClick = 0;
+
+        btnProximo.addEventListener("click", proximoCard);
+
+        function proximoCard(){
+            console.log(btnProximoClick);
+            if (btnProximoClick < cardFinalizado.length - 1){
+                    btnProximoClick += 1;
+                    divTexto.innerHTML = `<p> ${cardFinalizado[btnProximoClick].termo}</p> <br> <p>${cardFinalizado[btnProximoClick].definicao}</p>`;
+            
+                    console.log(btnProximoClick);
+            } else {
+                divTexto.innerHTML = `<p> Você finalizou o card, parabens!</p>`;
+            }
+            
+        }
+
+        if (btnProximoClick == 0){
+            divTexto.innerHTML = `<p> ${cardFinalizado[btnProximoClick].termo}</p> <br> <p>${cardFinalizado[btnProximoClick].definicao}</p>
+            `;
+        } else {
+            proximoCard();
+            
+
+        }
+
+
+    }
+    
+    
+}
+    
+    //Preciso criar a tela de navegação dos cards (Em andamento)
+    //Na tela de navegação dos cards faltas criar a funcionalidade do botão de resposta e do botão de excluir (Em andamento).
+    //Quando clico mais de uma vez no botão galeria ele cria vários bagulhos (arrumar)
+    //Quando clico no paragrafo ele cria vários cards de navegação Arrumar?
+
+
+
+

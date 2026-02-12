@@ -1,0 +1,178 @@
+*{
+    padding: 0px;
+    margin: 0px;
+}
+
+main > h1{
+    text-align: center;
+}
+
+form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid black;
+    height: 70vh;
+    gap: 30px;
+}
+
+form > input{
+    width: 80vw;
+    border-radius: 5px;
+    height: 5vh;
+    padding: 5px;
+    
+}
+
+form > textarea{
+    width: 80vw;
+    border-radius: 5px;
+    height: 20vh;
+    padding: 5px;
+}
+
+.botoes{
+    display: flex;
+    flex-direction: row;
+    width: 85vw;
+    align-items: center;
+    justify-content: center;
+    gap: 40px;
+    height: 8vh;
+}
+
+.botoes > button{
+    width: 40vw;
+    height: 100%;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+    
+}
+
+.classSecao2{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid blue;
+    height: 70vh;
+}
+
+.classFiltro{
+    width: 80vw;
+    margin-bottom: 20px;
+    margin-top: 20px;
+    height: 5vh;
+}
+
+.classBackup{
+    width: 40vw;
+    border-radius: 5px;
+    height: 5vh;
+    border: none;
+    margin-top: 20px;
+    cursor: pointer;
+}
+
+.classHeader{
+    border: 2px solid black;
+    width: 80vw;
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    align-items: center;
+    justify-content: center;
+}
+
+.classHeader > p{
+    width: 100%;
+    font-size: 1.2rem;
+    font-weight: 800;
+}
+
+.classGaleria{
+    border: 2px solid green;
+    display: flex;
+    flex-direction: row;
+    width: 80vw;
+    height: 70%;
+    gap: 15px;
+    
+}
+
+.classCategoria{
+    height: 100%;
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+   
+}
+
+.classCategoria > p{
+    font-size: 1.2rem;
+}
+
+.classQuantidade{
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+    width: 50%;
+}
+
+.classQuantidade > p{
+    font-size: 1.2rem;
+}
+
+.classSecao3{
+    display: flex;
+    flex-direction: column;
+    width: 100vw;
+    align-items: center;
+    justify-content: center;
+}
+
+.classDivCard{
+    height: 70vh;
+    width: 80vw;
+    border: 2px solid black;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.divtexto{
+    border: 2px solid black;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 75%;
+}
+
+.divBotoes{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 80vw;
+    border: 2px solid red;
+    height: 25%;
+    gap: 8px;
+}
+
+.divBotoes > button{
+    width: 80%;
+    border-radius: 5px;
+    border: none;
+    height: 20vh;
+}
+
