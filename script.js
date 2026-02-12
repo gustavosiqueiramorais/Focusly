@@ -267,8 +267,7 @@ function exibirCards(){
             
 
         }
-
-
+//Penis grosso KKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKK
     }
     
     
