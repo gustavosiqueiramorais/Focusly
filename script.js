@@ -4,7 +4,7 @@ const btnAdicionar = window.document.querySelector("#btnAdicionar");
 const btnGaleria = window.document.querySelector("#btnGaleria");
 const categoria = window.document.querySelector("#categoria");
 //Criei um array para adicionar os objetos que vão receber os valores dos cards criados
-let meusCards = [];
+
 
 //Adicione a propriedade categoria aos cards (Nova tarefa)
 function NovoCard(termo,definicao,categoria){
@@ -19,26 +19,36 @@ btnGaleria.addEventListener("click", exibirCards);
 
 function verificador(){
     try {
-        if (termo.value == ""){
+        if (termo.value == "" || definicao.value == "" || categoria.value == ""){
             throw new Error;
-        } else {
-            let novo = new NovoCard(termo,definicao,categoria);
-            meusCards.push(novo);
-            const json = JSON.stringify(meusCards);
-            window.localStorage.setItem(categoria.value,json);
-        
-            categoria.value = "";
-            termo.value = "";
-            definicao.value = "";
-        }
+        } 
+
+        let dadosFormatados = JSON.parse(localStorage.getItem(categoria.value)) || [];
+
+        // 2. Cria o novo objeto usando sua função construtora
+        let novo = new NovoCard(termo, definicao, categoria);
+
+        // 3. Adiciona ao array (que veio do localStorage ou nasceu vazio agora)
+        dadosFormatados.push(novo);
+
+        // 4. Salva no localStorage (se a chave não existia, ela é criada aqui)
+        localStorage.setItem(categoria.value, JSON.stringify(dadosFormatados));
+
+        // 5. Limpa os campos
+        categoria.value = "";
+        termo.value = "";
+        definicao.value = "";
+
+    
     } catch (error){
-        window.alert("Preencha a frente do card e tente novamente");
+        window.alert("Preencha todos os campos para salvar um novo card");
     }
 
 }
 
 
 function exibirCards(){
+    btnGaleria.disabled = true;
     const secao2 = window.document.createElement("div");
     const container = window.document.createElement("div");
     const divCategoria = window.document.createElement("div");
@@ -79,7 +89,8 @@ function exibirCards(){
     console.log(btnBackup.textContent);
 
 
-
+    let conteudoCategoria = "";
+    let conteudoQuantidade = "";
     for (let i = 0; i < localStorage.length; i++ ){
         const chave = localStorage.key(i);
         const valor = localStorage.getItem(chave);
@@ -91,13 +102,16 @@ function exibirCards(){
             continue
         } else {
 
-            divCategoria.innerHTML += `<p>${chave}</p>`; //-> Armazenar esse cara em uma variavel. usar a variavel como parametro da função de clique e só ai trabalhar com ela?
-            divQuantidade.innerHTML += `<p>${valorObjeto.length}</p>`;
+            conteudoCategoria += `<p>${chave}</p>`; //-> Armazenar esse cara em uma variavel. usar a variavel como parametro da função de clique e só ai trabalhar com ela?
+            conteudoQuantidade += `<p>${valorObjeto.length}</p>`;
 
         }
         
         
     }
+
+    divCategoria.innerHTML = conteudoCategoria;
+    divQuantidade.innerHTML = conteudoQuantidade;
 
     
         
@@ -213,6 +227,9 @@ function exibirCards(){
     });
 
     function estudarCards(event){
+        arrayCategoria.forEach((elemento) =>{
+            elemento.removeEventListener("click", estudarCards);//-> Agora tenho um novo bug, eu quero exibir mais de um card, e se eu faço desse modo, eu clico em um, e todos se desativam, como fazer para desativar somente aquele que foi clicado?
+        });
         const secao3 = window.document.createElement("div");
         const divCard = window.document.createElement("div");
         let dadoParagrafo = event.currentTarget.innerText; //-> Aqui acesso o texto do paragrafo em que o user clicou. 
@@ -227,40 +244,41 @@ function exibirCards(){
         //Agora tenho que dar um jeito de colocar isso como paragrafo da divTexto
         
 
-        divCard.innerHTML = `
-        <div class="divtexto">
-        </div>
-        <div class="divBotoes">
-            <button id="btnProximo">PRÓXIMO</button>
-            <button id="btnResposta">RESPOSTA</button>
-            <button id ="btnExcluir">EXCLUIR</button> 
-        </div>`;
 
-        const divTexto = divCard.createElement("div");
-        const divBotoes = divCard.createElement("div");
-        const btnProximo = divBotoes.createElement("button");
-        const btnResposta = divBotoes.createElement("button");
-        const btnExcluir = divBotoes.createElement("button");
+        const divTexto = window.document.createElement("div");
+        const divBotoes = window.document.createElement("div");
+        const btnProximo = window.document.createElement("button");
+        const btnResposta = window.document.createElement("button");
+        const btnExcluir = window.document.createElement("button");
 
 
-        
+        btnProximo.textContent = "PROXIMO";
+        btnExcluir.textContent = "EXCLUIR";
+        btnResposta.textContent = "RESPOSTA";
 
+
+        divTexto.classList.add("divtexto");
+        divBotoes.classList.add("divBotoes");
         divCard.classList.add("classDivCard");
         secao3.classList.add("classSecao3")
         btnProximo.setAttribute("id", "btnProximo");
         btnResposta.setAttribute("id", "btnResposta");
+        btnExcluir.setAttribute("id", "btnExcluir");
 
         secao3.appendChild(divCard);
+        divCard.appendChild(divTexto);
+        divCard.appendChild(divBotoes);
+        divBotoes.appendChild(btnResposta);
+        divBotoes.appendChild(btnProximo);
+        divBotoes.appendChild(btnExcluir);
+        
 
         document.body.appendChild(secao3);
 
         console.log(divCard);
         console.log("Deu certo");
 
-        const divTexto = divCard.querySelector(".divtexto");
-        const btnProximo = divCard.querySelector("#btnProximo");
-        const btnResposta = divCard.querySelector("#btnResposta");
-        const btnExcluir = divCard.querySelector("#btnExcluir");
+        
         let btnProximoClick = 0;
 
         btnProximo.addEventListener("click", proximoCard);
@@ -312,10 +330,10 @@ function exibirCards(){
     
 }
     
-    //-> Tirar o innerHtml+= da estrutura de repetução, isso causa problemas de performance (em andamento)
-    //-> Verificar se você esta usando corretamente o createElement(manipular elemento, como adicionar eventos e mudar classes) e o innerHtml(somente para vizualização estática). (em andamento)
-    //Quando clico mais de uma vez no botão galeria ele cria vários bagulhos (arrumar)
-    //Quando clico no paragrafo ele cria vários cards de navegação Arrumar?
+    
+    
+    //Quando clico mais de uma vez no botão galeria ele cria vários bagulhos (arrumado)
+    //Quando clico no paragrafo ele cria vários cards de navegação (Em adamento).
 
 
-//Funções anonimas são funções que não possume nome em JS
+
