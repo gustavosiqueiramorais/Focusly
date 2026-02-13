@@ -85,10 +85,17 @@ function exibirCards(){
         const valor = localStorage.getItem(chave);
         const valorObjeto = JSON.parse(valor);
 
+        //tenho que fazer a verificação aqui, se um localStorage estiver vazio ja exclui ele, se não exiba a chave e o lenght dele. 
+        if (valorObjeto.length == 0){
+            localStorage.removeItem(chave);
+            continue
+        } else {
 
-        divCategoria.innerHTML += `<p>${chave}</p>`; //-> Armazenar esse cara em uma variavel. usar a variavel como parametro da função de clique e só ai trabalhar com ela?
-        divQuantidade.innerHTML += `<p>${valorObjeto.length}</p>`;
+            divCategoria.innerHTML += `<p>${chave}</p>`; //-> Armazenar esse cara em uma variavel. usar a variavel como parametro da função de clique e só ai trabalhar com ela?
+            divQuantidade.innerHTML += `<p>${valorObjeto.length}</p>`;
 
+        }
+        
         
     }
 
@@ -225,13 +232,23 @@ function exibirCards(){
         </div>
         <div class="divBotoes">
             <button id="btnProximo">PRÓXIMO</button>
-            <button>RESPOSTA</button>
-            <button>EXCLUIR</button> 
+            <button id="btnResposta">RESPOSTA</button>
+            <button id ="btnExcluir">EXCLUIR</button> 
         </div>`;
+
+        const divTexto = divCard.createElement("div");
+        const divBotoes = divCard.createElement("div");
+        const btnProximo = divBotoes.createElement("button");
+        const btnResposta = divBotoes.createElement("button");
+        const btnExcluir = divBotoes.createElement("button");
+
+
         
 
         divCard.classList.add("classDivCard");
         secao3.classList.add("classSecao3")
+        btnProximo.setAttribute("id", "btnProximo");
+        btnResposta.setAttribute("id", "btnResposta");
 
         secao3.appendChild(divCard);
 
@@ -242,42 +259,63 @@ function exibirCards(){
 
         const divTexto = divCard.querySelector(".divtexto");
         const btnProximo = divCard.querySelector("#btnProximo");
+        const btnResposta = divCard.querySelector("#btnResposta");
+        const btnExcluir = divCard.querySelector("#btnExcluir");
         let btnProximoClick = 0;
 
         btnProximo.addEventListener("click", proximoCard);
+        btnResposta.addEventListener("click", exibirResposta);
+        btnExcluir.addEventListener("click", excluirCard);
 
         function proximoCard(){
             console.log(btnProximoClick);
             if (btnProximoClick < cardFinalizado.length - 1){
                     btnProximoClick += 1;
-                    divTexto.innerHTML = `<p> ${cardFinalizado[btnProximoClick].termo}</p> <br> <p>${cardFinalizado[btnProximoClick].definicao}</p>`;
+                    divTexto.innerHTML = `<p> ${cardFinalizado[btnProximoClick].termo}</p> <br>`;
             
                     console.log(btnProximoClick);
             } else {
                 divTexto.innerHTML = `<p> Você finalizou o card, parabens!</p>`;
+                btnResposta.remove();
             }
             
         }
 
         if (btnProximoClick == 0){
-            divTexto.innerHTML = `<p> ${cardFinalizado[btnProximoClick].termo}</p> <br> <p>${cardFinalizado[btnProximoClick].definicao}</p>
-            `;
+            divTexto.innerHTML = `<p> ${cardFinalizado[btnProximoClick].termo}</p> <br>`;
         } else {
             proximoCard();
             
 
         }
-//Penis grosso KKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKK
-    }
+
+        function exibirResposta(){
+            divTexto.innerHTML = `<p>${cardFinalizado[btnProximoClick].definicao}</p>`;
+        }
+
+        function excluirCard(){
+
+           
+            cardFinalizado.splice(btnProximoClick,1);// -> Aqui eu exclui o elmento do array cardFinalizado no indice em que o meu navegador esta.
+            
+            let subirCard = JSON.stringify(cardFinalizado);//-> Aqui tive que converter o novo Array em Json pq o localStorage só aceita isso.
+        
+            localStorage.setItem(dadoParagrafo,subirCard);//-> Aqui eu subi o novo json para o localStorage na chave em que o usuário clicou lá em cima.
+        
+            
+
+            
+        }
+
+    }   
     
     
 }
     
-    //Preciso criar a tela de navegação dos cards (Em andamento)
-    //Na tela de navegação dos cards faltas criar a funcionalidade do botão de resposta e do botão de excluir (Em andamento).
+    //-> Tirar o innerHtml+= da estrutura de repetução, isso causa problemas de performance (em andamento)
+    //-> Verificar se você esta usando corretamente o createElement(manipular elemento, como adicionar eventos e mudar classes) e o innerHtml(somente para vizualização estática). (em andamento)
     //Quando clico mais de uma vez no botão galeria ele cria vários bagulhos (arrumar)
     //Quando clico no paragrafo ele cria vários cards de navegação Arrumar?
 
 
-
-
+//Funções anonimas são funções que não possume nome em JS
