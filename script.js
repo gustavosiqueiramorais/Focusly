@@ -227,9 +227,8 @@ function exibirCards(){
     });
 
     function estudarCards(event){
-        arrayCategoria.forEach((elemento) =>{
-            elemento.removeEventListener("click", estudarCards);//-> Agora tenho um novo bug, eu quero exibir mais de um card, e se eu faço desse modo, eu clico em um, e todos se desativam, como fazer para desativar somente aquele que foi clicado?
-        });
+       
+        event.currentTarget.removeEventListener("click", estudarCards);
         const secao3 = window.document.createElement("div");
         const divCard = window.document.createElement("div");
         let dadoParagrafo = event.currentTarget.innerText; //-> Aqui acesso o texto do paragrafo em que o user clicou. 
@@ -295,6 +294,17 @@ function exibirCards(){
             } else {
                 divTexto.innerHTML = `<p> Você finalizou o card, parabens!</p>`;
                 btnResposta.remove();
+                btnProximo.remove();
+                btnExcluir.remove();
+                let btnVoltar = window.document.createElement("button");
+                btnVoltar.addEventListener("click", () =>{ //Estou usando um arroFunction anonima 
+                    secao3.remove(); //-> Aqui ele exclui a seção de estudos dos cards
+                })
+                btnVoltar.classList.add("classBtnVoltar");
+                btnVoltar.textContent = "VOLTAR";
+                divBotoes.appendChild(btnVoltar);
+                //Qual função vou adicionar aq? E qual vai ser o propósito dela?
+
             }
             
         }
@@ -332,8 +342,8 @@ function exibirCards(){
     
     
     
-    //Quando clico mais de uma vez no botão galeria ele cria vários bagulhos (arrumado)
-    //Quando clico no paragrafo ele cria vários cards de navegação (Em adamento).
+    //Criar um botão de voltar aos cards cadastrados quando o usuario terminar de estudar (Em adandamento).
+    //Quando o usuario excluir o card, mostrar uma mensagem de Bem sucedido e atualizar a página (Em andamento).
 
 
 
