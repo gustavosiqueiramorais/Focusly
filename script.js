@@ -298,7 +298,10 @@ function exibirCards(){
                 btnExcluir.remove();
                 let btnVoltar = window.document.createElement("button");
                 btnVoltar.addEventListener("click", () =>{ //Estou usando um arroFunction anonima 
-                    secao3.remove(); //-> Aqui ele exclui a seção de estudos dos cards
+                    secao3.remove(); //-> Aqui ele exclui a seção de estudos dos cards 
+                    arrayCategoria.forEach((elemento)=>{ //Dei novamente o evento de click aos paragrafos.
+                        elemento.addEventListener("click", estudarCards);
+                    });
                 })
                 btnVoltar.classList.add("classBtnVoltar");
                 btnVoltar.textContent = "VOLTAR";
@@ -342,7 +345,7 @@ function exibirCards(){
     
     
     
-    //Criar um botão de voltar aos cards cadastrados quando o usuario terminar de estudar (Em adandamento).
+    
     //Quando o usuario excluir o card, mostrar uma mensagem de Bem sucedido e atualizar a página (Em andamento).
 
 
