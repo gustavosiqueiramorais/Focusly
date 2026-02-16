@@ -176,3 +176,7 @@ form > textarea{
     height: 20vh;
 }
 
+.classBtnVoltar{
+    height: 50% !important;
+}
+
