@@ -180,3 +180,37 @@ form > textarea{
     height: 50% !important;
 }
 
+
+.classMsgExclusao{
+    border: 2px solid red;
+    width: 80vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 25vh;
+    border-radius: 10px;
+    position: absolute;
+    z-index: 10;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.classMsgExclusao > button{
+    width: 20vw;
+    height: 5vh;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+}
+
+.msgBackdrop{
+    background-color: gray;
+    border: 2px solid green;
+    width: 100vw;
+    height: 70vh;
+    position: absolute;
+    z-index: 9;
+}
+
+
+
