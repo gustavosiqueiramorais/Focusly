@@ -48,7 +48,7 @@ function verificador() {
 
 
 function exibirCards(){
-    if (localStorage.length == 0) {
+    if (localStorage.length === 0) {
         window.alert("Não ha cards cadastrados");
     } else {
         btnGaleria.disabled = true;
@@ -218,8 +218,10 @@ function exibirCards(){
         }
 
         let pCategoria = divCategoria.getElementsByTagName("p")
+        let pQuantidade = divQuantidade.getElementsByTagName("p");
 
         let arrayCategoria = Array.from(pCategoria);
+        let arrayQuantidade = Array.from(pQuantidade);
 
 
         arrayCategoria.forEach((elemento) => {
@@ -331,6 +333,23 @@ function exibirCards(){
 
 
                 cardFinalizado.splice(btnProximoClick, 1);// -> Aqui eu exclui o elmento do array cardFinalizado no indice em que o meu navegador esta.
+                let indiceElementoExcluido
+                arrayCategoria.forEach((elemento,indice)=>{
+                    if (elemento.innerText == dadoParagrafo){
+                        elemento.style.display = "none";
+                        indiceElementoExcluido = indice;
+                    }
+                });
+
+                arrayQuantidade.forEach((elemento,indice)=>{
+                    if (indiceElementoExcluido == indice){
+                        elemento.style.display = "none";
+                    }
+                });
+
+
+
+                
 
                 let subirCard = JSON.stringify(cardFinalizado);//-> Aqui tive que converter o novo Array em Json pq o localStorage só aceita isso.
 
@@ -342,7 +361,9 @@ function exibirCards(){
                 let btnOk = window.document.createElement("button");
 
                 btnOk.addEventListener("click", () => {
+                    secao2.remove();
                     secao3.remove();
+                    exibirCards();
                 });
                 msgExclusao.classList.add("classMsgExclusao");
                 msgBackdrop.classList.add("msgBackdrop");
@@ -367,7 +388,11 @@ function exibirCards(){
 
 
 
-//O código ainda possui alguns bugs ao excluir os cards, se ele excluir todos os cards ainda consigo acessar a galeria, mesmo o lenght estando vazio. Só volta ao normal quando eu atualizo a página.
+//O código ainda possui alguns bugs ao excluir os cards, se ele excluir todos os cards ainda consigo acessar a galeria, mesmo o lenght do localStorage estando vazio. Só volta ao normal quando eu atualizo a página.
+//Corrigi um bug do elemento estar aparecendo na galeria mesmo estando vazio.
+//Ao abrir a galeria, dar um jeito de atualizar ela caso o usuário adicione algo novo, ou a cada tantos segundos ele verifica se ha algo novo.
+
+//Dentro da função excluirCard, faça um teste, se o card tiver o lenght maior que 1, eu vou realmente conseguir excluir somente o card em que o usuario esta no momento? Se sim, coloca um if nessa função e diga se o lenght for um exclua o objeto do localStorage, se não exclua onde o usuario esta.
 
 
 
