@@ -47,7 +47,7 @@ function verificador() {
 }
 
 
-function exibirCards(){
+function exibirCards() {
     if (localStorage.length === 0) {
         window.alert("Não ha cards cadastrados");
     } else {
@@ -331,29 +331,31 @@ function exibirCards(){
 
             function excluirCard() {
 
+                if (cardFinalizado.length > 1) {
+                    cardFinalizado.splice(btnProximoClick, 1);
+                    let subirCard = JSON.stringify(cardFinalizado);//-> Aqui tive que converter o novo Array em Json pq o localStorage só aceita isso.
 
-                cardFinalizado.splice(btnProximoClick, 1);// -> Aqui eu exclui o elmento do array cardFinalizado no indice em que o meu navegador esta.
-                let indiceElementoExcluido
-                arrayCategoria.forEach((elemento,indice)=>{
-                    if (elemento.innerText == dadoParagrafo){
+                    localStorage.setItem(dadoParagrafo, subirCard);//-> Aqui eu subi o novo json para o localStorage na chave em que o usuário clicou lá em cima.
+                } else {
+                    localStorage.removeItem(dadoParagrafo);
+                }
+                // -> Aqui eu exclui o elmento do array cardFinalizado no indice em que o meu navegador esta.
+                let indiceElementoExcluido;
+                arrayCategoria.forEach((elemento, indice) => {
+                    if (elemento.innerText == dadoParagrafo) {
                         elemento.style.display = "none";
                         indiceElementoExcluido = indice;
                     }
                 });
 
-                arrayQuantidade.forEach((elemento,indice)=>{
-                    if (indiceElementoExcluido == indice){
+                arrayQuantidade.forEach((elemento, indice) => {
+                    if (indiceElementoExcluido == indice) {
                         elemento.style.display = "none";
                     }
                 });
 
 
 
-                
-
-                let subirCard = JSON.stringify(cardFinalizado);//-> Aqui tive que converter o novo Array em Json pq o localStorage só aceita isso.
-
-                localStorage.setItem(dadoParagrafo, subirCard);//-> Aqui eu subi o novo json para o localStorage na chave em que o usuário clicou lá em cima.
 
                 divBotoes.remove();
                 let msgExclusao = window.document.createElement("div");
@@ -388,11 +390,10 @@ function exibirCards(){
 
 
 
-//O código ainda possui alguns bugs ao excluir os cards, se ele excluir todos os cards ainda consigo acessar a galeria, mesmo o lenght do localStorage estando vazio. Só volta ao normal quando eu atualizo a página.
-//Corrigi um bug do elemento estar aparecendo na galeria mesmo estando vazio.
+
 //Ao abrir a galeria, dar um jeito de atualizar ela caso o usuário adicione algo novo, ou a cada tantos segundos ele verifica se ha algo novo.
 
-//Dentro da função excluirCard, faça um teste, se o card tiver o lenght maior que 1, eu vou realmente conseguir excluir somente o card em que o usuario esta no momento? Se sim, coloca um if nessa função e diga se o lenght for um exclua o objeto do localStorage, se não exclua onde o usuario esta.
+
 
 
 
