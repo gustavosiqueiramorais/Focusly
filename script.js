@@ -39,6 +39,8 @@ function verificador() {
         termo.value = "";
         definicao.value = "";
 
+        
+
 
     } catch (error) {
         window.alert("Preencha todos os campos para salvar um novo card");
@@ -55,10 +57,7 @@ function exibirCards() {
         const secao2 = window.document.createElement("div");
         const container = window.document.createElement("div");
         const divCategoria = window.document.createElement("div");
-        const divQuantidade = window.document.createElement("div");
-        const cabecalho = window.document.createElement("header");
-        const tituloCard = window.document.createElement("p");
-        const qtdCards = window.document.createElement("p");
+        const divQuantidade = window.document.createElement("div");     
         const btnBackup = window.document.createElement("button");
         const tagBackup = window.document.createElement("a");
         const inputFiltro = window.document.createElement("input");
@@ -70,14 +69,11 @@ function exibirCards() {
 
         secao2.classList.add("classSecao2");
         inputFiltro.classList.add("classFiltro");
-        container.classList.add("classGaleria");
-        cabecalho.classList.add("classHeader");
+        container.classList.add("classGaleria");//-> Mexer no estilo desse caba
         divCategoria.classList.add("classCategoria");
         divQuantidade.classList.add("classQuantidade");
         btnBackup.classList.add("classBackup");
 
-        tituloCard.textContent = "Categoria";
-        qtdCards.textContent = "Qtd de Cards";
         btnBackup.textContent = "BACKUP";
 
         inputFiltro.setAttribute("placeholder", "Filtar por categoria");
@@ -85,10 +81,6 @@ function exibirCards() {
 
 
         secao2.appendChild(inputFiltro);
-
-        cabecalho.appendChild(tituloCard);
-        cabecalho.appendChild(qtdCards);
-        secao2.appendChild(cabecalho);
         console.log(btnBackup.textContent);
 
 
@@ -391,7 +383,9 @@ function exibirCards() {
 
 
 
-//Ao abrir a galeria, dar um jeito de atualizar ela caso o usuário adicione algo novo, ou a cada tantos segundos ele verifica se ha algo novo.
+//-> Fazer um fluxo de telas maior e mais detalhado, tem prints de ideias no seu telefone. (Em andamento).
+
+//-> Estilizando as telas (Em andamento).
 
 
 
