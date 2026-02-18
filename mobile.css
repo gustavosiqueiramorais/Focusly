@@ -3,8 +3,34 @@
     margin: 0px;
 }
 
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+:root{
+    --azul1: #044BD9;
+    --azul2: #3084F2;
+    --azul3: #5096F2;
+    --azul4: #8DB9F2;
+    --laranja: #F29E38;
+}
+
+body{
+    background: linear-gradient(to bottom, var(--azul1), var(--azul2));
+    background-repeat: no-repeat;
+}
+main{
+    height: 100vh;
+}
+
 main > h1{
     text-align: center;
+    font-family: "Poppins", sans-serif;
+    color: var(--laranja);
+    font-size: 3.5rem;
+    margin-top: 5vh;
+    margin-bottom: 40px;
+    font-weight: 700;
+    
+
 }
 
 form{
@@ -12,16 +38,16 @@ form{
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    border: 2px solid black;
-    height: 70vh;
     gap: 30px;
 }
 
 form > input{
     width: 80vw;
-    border-radius: 5px;
-    height: 5vh;
-    padding: 5px;
+    border-radius: 10px;
+    height: 7vh;
+    padding: 8px;
+    border: none;
+    
     
 }
 
@@ -48,6 +74,10 @@ form > textarea{
     border-radius: 10px;
     border: none;
     cursor: pointer;
+    font-family: "Open sans", sans-serif;
+    font-size: 1rem;
+    
+    
     
 }
 
@@ -58,7 +88,7 @@ form > textarea{
     align-items: center;
     justify-content: center;
     border: 2px solid blue;
-    height: 70vh;
+    height: 100vh;
 }
 
 .classFiltro{
@@ -66,15 +96,21 @@ form > textarea{
     margin-bottom: 20px;
     margin-top: 20px;
     height: 5vh;
+    border-radius: 10px;
+    border: none;
+    padding: 5px;
 }
 
 .classBackup{
-    width: 40vw;
-    border-radius: 5px;
-    height: 5vh;
+    width: 50vw;
+    border-radius: 15px;
+    height: 7vh;
     border: none;
     margin-top: 20px;
     cursor: pointer;
+    font-family: "Opens Sans", sans-serif;
+    font-size: 1rem;
+
 }
 
 .classHeader{
@@ -94,12 +130,15 @@ form > textarea{
 }
 
 .classGaleria{
-    border: 2px solid green;
+    border: 3px solid var(--laranja);
     display: flex;
     flex-direction: row;
     width: 80vw;
     height: 70%;
     gap: 15px;
+    padding: 5px;
+    border-radius: 15px;
+
     
 }
 
@@ -115,6 +154,8 @@ form > textarea{
 
 .classCategoria > p{
     font-size: 1.2rem;
+    color: white;
+    font-family: "Opens Sans", sans-serif;
 }
 
 .classQuantidade{
@@ -128,6 +169,7 @@ form > textarea{
 
 .classQuantidade > p{
     font-size: 1.2rem;
+    color: white;
 }
 
 .classSecao3{
