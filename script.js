@@ -239,17 +239,16 @@ function exibirCards() {
             //Vou pegar os dados do localStorage em que a chave for igual ao dadoParagrafo, transformar em objeto, e aceesar a propriedade termo e definição, após isso exibir no paragrafo da divTexto.
             //Agora tenho que dar um jeito de colocar isso como paragrafo da divTexto
 
-
-
+            const divGuia = window.document.createElement("div");
+            const btnExcluir = window.document.createElement("button");
             const divTexto = window.document.createElement("div");
             const divBotoes = window.document.createElement("div");
             const btnProximo = window.document.createElement("button");
             const btnResposta = window.document.createElement("button");
-            const btnExcluir = window.document.createElement("button");
-
-
+            
+            divGuia.innerHTML = `<p> ${event.currentTarget.innerText}</p>`;
+            btnExcluir.innerHTML = `<img src = "../icones/lixo.png">`
             btnProximo.textContent = "PROXIMO";
-            btnExcluir.textContent = "EXCLUIR";
             btnResposta.textContent = "RESPOSTA";
 
 
@@ -257,16 +256,20 @@ function exibirCards() {
             divBotoes.classList.add("divBotoes");
             divCard.classList.add("classDivCard");
             secao3.classList.add("classSecao3")
+            divGuia.classList.add("classDivGuia");
+            btnExcluir.classList.add("classBtnExcluir");
             btnProximo.setAttribute("id", "btnProximo");
             btnResposta.setAttribute("id", "btnResposta");
             btnExcluir.setAttribute("id", "btnExcluir");
 
+            divGuia.appendChild(btnExcluir);
+            divCard.appendChild(divGuia);
             secao3.appendChild(divCard);
             divCard.appendChild(divTexto);
             divCard.appendChild(divBotoes);
             divBotoes.appendChild(btnResposta);
             divBotoes.appendChild(btnProximo);
-            divBotoes.appendChild(btnExcluir);
+            
 
 
             document.body.appendChild(secao3);
@@ -386,6 +389,11 @@ function exibirCards() {
 //-> Fazer um fluxo de telas maior e mais detalhado, tem prints de ideias no seu telefone. (Em andamento).
 
 //-> Estilizando as telas (Em andamento).
+
+//-> Na exibição de botões da função estudarCards, exibir o botão resposta e depois de mostrar a resposta desaparecer com ele (Em andamento).
+//-> Transformar o botão de excluir em um icone de lixeira.
+//-> Fazer uma tela de cards finalizados mais trabalhada (Em andamento).
+//-> Colocar o botão como filho do divCards e exbir tambem o nome do card atual. (Em andamento)
 
 
 
