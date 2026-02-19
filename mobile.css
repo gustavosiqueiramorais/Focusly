@@ -156,6 +156,7 @@ form > textarea{
     font-size: 1.2rem;
     color: white;
     font-family: "Opens Sans", sans-serif;
+    cursor: pointer;
 }
 
 .classQuantidade{
@@ -178,12 +179,12 @@ form > textarea{
     width: 100vw;
     align-items: center;
     justify-content: center;
+    height: 100vh;
 }
 
 .classDivCard{
     height: 70vh;
     width: 80vw;
-    border: 2px solid black;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -191,13 +192,64 @@ form > textarea{
 }
 
 .divtexto{
-    border: 2px solid black;
+    border: 3px solid var(--laranja);
     width: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     height: 75%;
+    border-radius: 20px;
+    margin-bottom: 10px;
+}
+
+.divtexto > p{
+    color: white;
+    font-family: "Open sans", sans-serif;
+    font-weight: 400;
+}
+
+.classDivGuia{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 80vw;
+    color: white;
+    font-family: "Opens sans", sans-serif;
+    height: 6vh;
+    margin-bottom: 2vh;
+    gap: 30vw;
+    
+}
+
+.classDivGuia > p{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+    height: 100%;
+    font-size: 1.30rem;
+    background-color: var(--azul3);
+    border-radius: 20px;
+    
+}
+
+
+
+.classBtnExcluir{
+    border: none;
+    width: 20%;
+    height: 100%;
+    border-radius: 10px;
+    background-color: var(--azul3);
+}
+
+
+
+.classBtnExcluir > img{
+    width: 100%;
+    height: 100%;
+    
 }
 
 .divBotoes{
@@ -206,7 +258,6 @@ form > textarea{
     align-items: center;
     justify-content: center;
     width: 80vw;
-    border: 2px solid red;
     height: 25%;
     gap: 8px;
 }
