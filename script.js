@@ -76,7 +76,7 @@ function exibirCards() {
 
         btnBackup.textContent = "BACKUP";
 
-        inputFiltro.setAttribute("placeholder", "Filtar por categoria");
+        inputFiltro.setAttribute("placeholder", "Filtrar por categoria");
         inputFiltro.setAttribute("type", "text");
 
 
@@ -247,22 +247,24 @@ function exibirCards() {
             const btnResposta = window.document.createElement("button");
             
             divGuia.innerHTML = `<p> ${event.currentTarget.innerText}</p>`;
-            btnExcluir.innerHTML = `<img src = "../icones/lixo.png">`
-            btnProximo.textContent = "PROXIMO";
+            btnExcluir.innerHTML = `<img src = "../icones/lixo.png">`;
+            btnProximo.innerHTML = `<img src = "../icones/proximo.png">`;
             btnResposta.textContent = "RESPOSTA";
-
 
             divTexto.classList.add("divtexto");
             divBotoes.classList.add("divBotoes");
             divCard.classList.add("classDivCard");
             secao3.classList.add("classSecao3")
-            divGuia.classList.add("classDivGuia");
+            divGuia.classList.add("classDivGuia")
+            
+            btnProximo.classList.add("classBtnProximo");
+            btnResposta.classList.add("classBtnResposta");
             btnExcluir.classList.add("classBtnExcluir");
             btnProximo.setAttribute("id", "btnProximo");
             btnResposta.setAttribute("id", "btnResposta");
             btnExcluir.setAttribute("id", "btnExcluir");
 
-            divGuia.appendChild(btnExcluir);
+            divBotoes.appendChild(btnExcluir);
             divCard.appendChild(divGuia);
             secao3.appendChild(divCard);
             divCard.appendChild(divTexto);
@@ -286,9 +288,11 @@ function exibirCards() {
 
             function proximoCard() {
                 console.log(btnProximoClick);
+                btnResposta.disabled = false;
                 if (btnProximoClick < cardFinalizado.length - 1) {
                     btnProximoClick += 1;
                     divTexto.innerHTML = `<p> ${cardFinalizado[btnProximoClick].termo}</p> <br>`;
+                    
 
                     console.log(btnProximoClick);
                 } else {
@@ -297,6 +301,7 @@ function exibirCards() {
                     btnProximo.remove();
                     btnExcluir.remove();
                     let btnVoltar = window.document.createElement("button");
+                    btnVoltar.classList.add("classBtnVoltar");
                     btnVoltar.addEventListener("click", () => { //Estou usando um arroFunction anonima 
                         secao3.remove(); //-> Aqui ele exclui a seção de estudos dos cards 
                         arrayCategoria.forEach((elemento) => { //Dei novamente o evento de click aos paragrafos.
@@ -321,7 +326,8 @@ function exibirCards() {
             }
 
             function exibirResposta() {
-                divTexto.innerHTML = `<p>${cardFinalizado[btnProximoClick].definicao}</p>`;
+                btnResposta.disabled = true;
+                divTexto.innerHTML += `<p>${cardFinalizado[btnProximoClick].definicao}</p>`;
             }
 
             function excluirCard() {
@@ -391,9 +397,9 @@ function exibirCards() {
 //-> Estilizando as telas (Em andamento).
 
 //-> Na exibição de botões da função estudarCards, exibir o botão resposta e depois de mostrar a resposta desaparecer com ele (Em andamento).
-//-> Transformar o botão de excluir em um icone de lixeira.
+
 //-> Fazer uma tela de cards finalizados mais trabalhada (Em andamento).
-//-> Colocar o botão como filho do divCards e exbir tambem o nome do card atual. (Em andamento)
+
 
 
 
