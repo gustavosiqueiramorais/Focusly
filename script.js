@@ -56,8 +56,6 @@ function exibirCards() {
         btnGaleria.disabled = true;
         const secao2 = window.document.createElement("div");
         const container = window.document.createElement("div");
-        const divCategoria = window.document.createElement("div");
-        const divQuantidade = window.document.createElement("div");     
         const btnBackup = window.document.createElement("button");
         const tagBackup = window.document.createElement("a");
         const inputFiltro = window.document.createElement("input");
@@ -70,8 +68,6 @@ function exibirCards() {
         secao2.classList.add("classSecao2");
         inputFiltro.classList.add("classFiltro");
         container.classList.add("classGaleria");//-> Mexer no estilo desse caba
-        divCategoria.classList.add("classCategoria");
-        divQuantidade.classList.add("classQuantidade");
         btnBackup.classList.add("classBackup");
 
         btnBackup.textContent = "BACKUP";
@@ -84,8 +80,7 @@ function exibirCards() {
         console.log(btnBackup.textContent);
 
 
-        let conteudoCategoria = "";
-        let conteudoQuantidade = "";
+        let conteudoCards = "";
         for (let i = 0; i < localStorage.length; i++) {
             const chave = localStorage.key(i);
             const valor = localStorage.getItem(chave);
@@ -97,22 +92,17 @@ function exibirCards() {
                 continue
             } else {
 
-                conteudoCategoria += `<p>${chave}</p>`; //-> Armazenar esse cara em uma variavel. usar a variavel como parametro da função de clique e só ai trabalhar com ela?
-                conteudoQuantidade += `<p>${valorObjeto.length}</p>`;
+                conteudoCards += `<div class = "divCard"><p>${chave}</p> </div>`; //-> Armazenar esse cara em uma variavel. usar a variavel como parametro da função de clique e só ai trabalhar com ela?
 
             }
 
 
         }
 
-        divCategoria.innerHTML = conteudoCategoria;
-        divQuantidade.innerHTML = conteudoQuantidade;
+        container.innerHTML = conteudoCards;
 
 
 
-
-        container.appendChild(divCategoria);
-        container.appendChild(divQuantidade);
         secao2.appendChild(container);
         tagBackup.appendChild(btnBackup)
         secao2.appendChild(tagBackup);
@@ -151,20 +141,19 @@ function exibirCards() {
         function filtrarCards() {
 
             let indiceBusca;
-            let pCategoria = divCategoria.getElementsByTagName("p"); // -> Nessa linha ele me retorna um array com todos os paragrafos existentes na div categoria. 
-            let pQuantidade = divQuantidade.getElementsByTagName("p");
+            let divCards = container.getElementsByTagName("div"); // -> Nessa linha ele me retorna um array com todos os paragrafos existentes na div categoria. 
+            
 
 
 
 
-            let arrayCategoria = Array.from(pCategoria); // -> Aqui eu converto a variável p em um array para conseguir usar os métodos de array nele.
-            let arrayQuantidade = Array.from(pQuantidade);
+            let arrayCards = Array.from(divCards); // -> Aqui eu converto a variável p em um array para conseguir usar os métodos de array nele.
 
 
 
 
             if (inputFiltro.value == "") {
-                arrayCategoria.map((elemento) => {
+                arrayCards.map((elemento) => {
                     return elemento.style.display = "block";
                 })
 
@@ -173,14 +162,14 @@ function exibirCards() {
                 })
 
             } else {
-                let filtro = arrayCategoria.filter((elemento, indice) => {
+                let filtro = arrayCards.filter((elemento, indice) => {
 
 
                     return elemento.innerText.toLowerCase().includes(inputFiltro.value.toLowerCase());
                     //O filter me retorna um novo array somente com o elemento que o usuario digitou.
 
                 });
-                let buscaFinalizada = arrayCategoria.map((elemento, indice) => {
+                let buscaFinalizada = arrayCards.map((elemento, indice) => {
                     if (elemento.innerText == filtro[0].innerText) {
                         elemento.style.display = "block";
                         indiceBusca = indice;
@@ -193,15 +182,6 @@ function exibirCards() {
 
                 });
 
-                arrayQuantidade.map((elemento, indice) => {
-
-                    if (indice == indiceBusca) {
-                        elemento.style.display = "block"
-                    } else {
-                        elemento.style.display = "none";
-                    }
-
-                });
 
 
             }
@@ -209,14 +189,12 @@ function exibirCards() {
 
         }
 
-        let pCategoria = divCategoria.getElementsByTagName("p")
-        let pQuantidade = divQuantidade.getElementsByTagName("p");
+        let divCards = container.getElementsByTagName("div");
 
-        let arrayCategoria = Array.from(pCategoria);
-        let arrayQuantidade = Array.from(pQuantidade);
+        let arrayCards = Array.from(divCards);
 
 
-        arrayCategoria.forEach((elemento) => {
+        arrayCards.forEach((elemento) => {
             elemento.addEventListener("click", estudarCards);
 
 
@@ -304,7 +282,7 @@ function exibirCards() {
                     btnVoltar.classList.add("classBtnVoltar");
                     btnVoltar.addEventListener("click", () => { //Estou usando um arroFunction anonima 
                         secao3.remove(); //-> Aqui ele exclui a seção de estudos dos cards 
-                        arrayCategoria.forEach((elemento) => { //Dei novamente o evento de click aos paragrafos.
+                        arrayCards.forEach((elemento) => { //Dei novamente o evento de click aos paragrafos.
                             elemento.addEventListener("click", estudarCards);
                         });
                     })
@@ -342,21 +320,12 @@ function exibirCards() {
                 }
                 // -> Aqui eu exclui o elmento do array cardFinalizado no indice em que o meu navegador esta.
                 let indiceElementoExcluido;
-                arrayCategoria.forEach((elemento, indice) => {
+                arrayCards.forEach((elemento, indice) => {
                     if (elemento.innerText == dadoParagrafo) {
                         elemento.style.display = "none";
                         indiceElementoExcluido = indice;
                     }
                 });
-
-                arrayQuantidade.forEach((elemento, indice) => {
-                    if (indiceElementoExcluido == indice) {
-                        elemento.style.display = "none";
-                    }
-                });
-
-
-
 
                 divBotoes.remove();
                 let msgExclusao = window.document.createElement("div");
@@ -396,9 +365,11 @@ function exibirCards() {
 
 //-> Estilizando as telas (Em andamento).
 
-//-> Na exibição de botões da função estudarCards, exibir o botão resposta e depois de mostrar a resposta desaparecer com ele (Em andamento).
 
 //-> Fazer uma tela de cards finalizados mais trabalhada (Em andamento).
+
+//-> Refazer a estrutura do paragrafo para uma div por questões de estilização (Concluido).
+//-> Dar um jeito de mostrar a quantidade de cards no novo formato (Em andamento)
 
 
 

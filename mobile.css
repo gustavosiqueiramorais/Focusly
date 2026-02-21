@@ -109,6 +109,21 @@ form > textarea{
     height: 100vh;
 }
 
+.divCard{
+    display: flex;
+    flex-direction: column;
+    border-radius: 10px;
+    padding: 2vw;
+    height: 6vh;
+    background-color: white;
+    justify-content: center;
+}
+
+.divCard > p{
+    color: black;
+    font-family: "Poppins", sans-serif;
+}
+
 .classFiltro{
     width: 80vw;
     margin-bottom: 20px;
@@ -163,7 +178,7 @@ form > textarea{
 .classGaleria{
     border: 3px solid var(--laranja);
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     width: 80vw;
     height: 70%;
     gap: 15px;
