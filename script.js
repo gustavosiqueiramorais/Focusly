@@ -225,8 +225,8 @@ function exibirCards() {
             const btnResposta = window.document.createElement("button");
             
             divGuia.innerHTML = `<p> ${event.currentTarget.innerText}</p>`;
-            btnExcluir.innerHTML = `<img src = "../icones/lixo.png">`;
-            btnProximo.innerHTML = `<img src = "../icones/proximo.png">`;
+            btnExcluir.innerHTML = `<img src = "./icones/lixo.png">`;
+            btnProximo.innerHTML = `<img src = "./icones/proximo.png">`;
             btnResposta.textContent = "RESPOSTA";
 
             divTexto.classList.add("divtexto");
@@ -361,15 +361,9 @@ function exibirCards() {
 
 
 
-//-> Fazer um fluxo de telas maior e mais detalhado, tem prints de ideias no seu telefone. (Em andamento).
+//Resolver o bug: Enquanto a galeria esta aberta e eu adiciono um novo card ela não se atualiza, eu tenho que atualizar a página e ai sim volta a funcionar. (Em andamento).
 
-//-> Estilizando as telas (Em andamento).
-
-
-//-> Fazer uma tela de cards finalizados mais trabalhada (Em andamento).
-
-//-> Refazer a estrutura do paragrafo para uma div por questões de estilização (Concluido).
-//-> Dar um jeito de mostrar a quantidade de cards no novo formato (Em andamento)
+//Criar a interface para desktop (Em andamento).
 
 
 
