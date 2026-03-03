@@ -389,14 +389,66 @@ form > textarea{
 }
 
 @media screen and (min-width: 992px){
-    body{
-        background-image: none;
-        background-color: lightgray;
-    }
 
     main > form{
         background-color: white;
-        width: 40vw;
+        width: 30vw;
+        height: 50vh;
+    }
+
+    .botoes{
+        height: 15vh;
+    }
+
+    .botoes > button:hover{
+        box-shadow: 0px 0px 5px 2px rgba(255, 166, 0, 0.621);
+    }
+
+    .classFiltro{
+        width: 70vw;
+    }
+
+    .classGaleria{
+        width: 70vw;
+        height: auto;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+
+    }
+
+    .classBackup{
+        width: 20vw;
+        transition-duration: 0.1s;
+    }
+
+    .classBackup:hover{
+        background-color: var(--laranja);
+        color: white;
+    }
+    
+    .classSecao2{
+        border: none;
+        min-height: 100vh;
+    }
+
+    .divCard{
+        transition-duration: 0.1s;
+        cursor: pointer;
+    }
+
+    .divCard:hover{
+        transform: translateY(-10px);
+        box-shadow: 0px 2px 5px 0px black;
+
+    }
+
+    .classSecao3{
+        border: none;
+        padding: none;
+    }
+
+    .classDivCard{
+        width: 70vw;
     }
 
 }

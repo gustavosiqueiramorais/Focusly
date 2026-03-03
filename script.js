@@ -365,6 +365,8 @@ function exibirCards() {
 
 //Criar a interface para desktop (Em andamento).
 
+//Galeria não esta sendo exibida no mobile arrumar (Em andamento).
+
 
 
 
