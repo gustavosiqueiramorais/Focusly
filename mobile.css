@@ -451,6 +451,53 @@ form > textarea{
         width: 70vw;
     }
 
+    .divtexto{
+        width: 70vw;
+        font-size: 1.5rem;
+    }
+
+    .classDivGuia{
+        width: 70vw;
+    }
+
+    .classDivGuia > p{
+        width: 25vw;
+        text-transform: uppercase;
+    }
+
+    .divBotoes{
+        width: 70vw;
+    }
+
+    .divBotoes > button{
+        cursor: pointer;
+    }
+
+    
+
+    .classBtnResposta{
+        width: 35%;
+    }
+
+    .classBtnProximo{
+        width: 10%;
+    }
+
+    .classBtnExcluir{
+        width: 10%;
+    }
+
+    .classBtnVoltar{
+        width: 40%;
+    }
+
+    .classBtnVoltar:hover{
+        background-color: var(--laranja);
+        color: white;
+    }
+
+    
+
 }
 
 
