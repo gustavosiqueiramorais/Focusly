@@ -5,20 +5,30 @@
 
   O FocusLy resolve um problema clássico dos estudantes, reter o conteúdo que foi estudado. O usúario consegue criar, excluir e revisar flashcards.
 
-  TECNOLOGIAS UTILIZADAS: 
-  Html5 para estruturação do conteudo.
-  Css3 para estilização das páginas.
-  JavaScript para interatividade dinãmica.
+  TECNOLOGIAS UTILIZADAS: <br>
 
-  COMO ACESSAR E USAR?
-  Acesse o link: pari pari.
+   <img src="https://skillicons.dev/icons?i=html,css,javascript,git,github" /><br>
+
+  <ul>
+   <li>Html5 para estruturação do conteudo.</li>
+   <li>Css3 para estilização.</li>
+   <li>JavaScript para interatividade dinâmica.</li>
+   <li>Git para versionamento de código.</li>
+   <li>Github para hospedagem e repositório remoto.</li>
+  </ul>
+ 
+  COMO ACESSAR E USAR? <br>
+  O projeto esta hospedado de maneira gratuita com o githubpages <br>
+  Acesse o link: https://gustavosiqueiramorais.github.io/Focusly/ <br>
 
   FUNCIONALIDADES:
-  Criar cards: O usuário consegue criar flashcards do zero, adicionando categoria, pergunta e resposta.
-  Excluir cards: O usuário consegue excluir cards que  já foram criados.
-  Filtrar por categoria: O usuario consegue filtrar os cards desejados entre todos já existentes atráves de uma barra de pesquisa.
-  Backup: É possível baixar um arquivo .txt contendo todos os flashcards criados anteriormente.
-
+  <ul>
+   <li>Criar cards: O usuário consegue criar flashcards do zero, adicionando categoria, pergunta e resposta. <br></li>
+   <li>Excluir cards: O usuário consegue excluir cards que  já foram criados. <br></li>
+   <li> Filtrar por categoria: O usuario consegue filtrar os cards desejados entre todos já existentes atráves de uma barra de pesquisa. <br></li>
+   <li> Backup: É possível baixar um arquivo .txt contendo todos os flashcards criados anteriormente. <br></li>
+  </ul>
+  <br>
 
   GALERIA E EVOLUÇÃO
   Abaixo, os registros da fase de desenvolvimento e design da aplicação.
