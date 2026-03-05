@@ -24,7 +24,8 @@
   Abaixo, os registros da fase de desenvolvimento e design da aplicação.
 
   Wireframe Principal: 
-  <img width="1144" height="693" alt="Captura de tela 2026-02-02 110934" src="https://github.com/user-attachments/assets/eb752faf-256e-4200-9db1-016491543135" />
+  <img width="919" height="714" alt="Captura de tela 2026-03-05 152646" src="https://github.com/user-attachments/assets/831f34db-1c01-4ac1-8e79-dcdc64c20a91" />
+
 
 
   Primeira versão mobile: 
