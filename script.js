@@ -123,7 +123,7 @@ function exibirCards() {
             let dadosFormatados = dados.split("]");
             console.log(dadosFormatados);
 
-            const blobBackup = new Blob(dadosFormatados, { type: "text/plain" });
+            const blobBackup = new Blob(dadosFormatados, {type: "text/plain"});
             const ticket = URL.createObjectURL(blobBackup);
             console.log(ticket);
 
@@ -195,18 +195,25 @@ function exibirCards() {
 
 
         arrayCards.forEach((elemento) => {
-            elemento.addEventListener("click", estudarCards);
+            elemento.addEventListener("click", novaPage);
 
 
 
         });
 
-        function estudarCards(event) {
+        function novaPage(event){
+            let dadoParagrafo = event.currentTarget.innerText; 
+            secao2.remove();
 
-            event.currentTarget.removeEventListener("click", estudarCards);
+            
+            estudarCards(dadoParagrafo);
+        }
+
+        function estudarCards(dadoParagrafo) {
+
             const secao3 = window.document.createElement("div");
             const divCard = window.document.createElement("div");
-            let dadoParagrafo = event.currentTarget.innerText; //-> Aqui acesso o texto do paragrafo em que o user clicou. 
+            //-> Aqui acesso o texto do paragrafo em que o user clicou. 
 
             let cardString = localStorage.getItem(dadoParagrafo);
             let cardFinalizado = JSON.parse(cardString);
@@ -244,7 +251,7 @@ function exibirCards() {
 
             divBotoes.appendChild(btnExcluir);
             divCard.appendChild(divGuia);
-            secao3.appendChild(divCard);
+            secao3.appendChild(divCard); //Preciso que ao clicar no card a seção dois seja removida e a seçao 3 entre
             divCard.appendChild(divTexto);
             divCard.appendChild(divBotoes);
             divBotoes.appendChild(btnResposta);
@@ -282,6 +289,8 @@ function exibirCards() {
                     btnVoltar.classList.add("classBtnVoltar");
                     btnVoltar.addEventListener("click", () => { //Estou usando um arroFunction anonima 
                         secao3.remove(); //-> Aqui ele exclui a seção de estudos dos cards 
+                        exibirCards();
+                        //Agora preciso exibir novamente a galeria ao clicar no botão voltar.
                         arrayCards.forEach((elemento) => { //Dei novamente o evento de click aos paragrafos.
                             elemento.addEventListener("click", estudarCards);
                         });
@@ -366,6 +375,8 @@ function exibirCards() {
 //Criar a interface para desktop (Em andamento).
 
 //Galeria não esta sendo exibida no mobile arrumar (Em andamento).
+
+
 
 
 

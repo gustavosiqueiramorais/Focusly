@@ -222,7 +222,7 @@ form > textarea{
 .classSecao3{
     display: flex;
     flex-direction: column;
-    width: 100vw;
+    width: 100%;
     align-items: center;
     justify-content: center;
     height: 100vh;
@@ -449,15 +449,16 @@ form > textarea{
 
     .classDivCard{
         width: 70vw;
+        height: 90%;
     }
 
     .divtexto{
-        width: 70vw;
+        width: 60vw;
         font-size: 1.5rem;
     }
 
     .classDivGuia{
-        width: 70vw;
+        width: 60vw;
     }
 
     .classDivGuia > p{
@@ -473,18 +474,17 @@ form > textarea{
         cursor: pointer;
     }
 
-    
 
     .classBtnResposta{
-        width: 35%;
+        width: 25%;
     }
 
     .classBtnProximo{
-        width: 10%;
+        width: 8%;
     }
 
     .classBtnExcluir{
-        width: 10%;
+        width: 8%;
     }
 
     .classBtnVoltar{
@@ -494,6 +494,11 @@ form > textarea{
     .classBtnVoltar:hover{
         background-color: var(--laranja);
         color: white;
+    }
+
+    .classMsgExclusao{
+        width: 40vw;
+        
     }
 
     
