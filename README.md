@@ -47,7 +47,7 @@
       <img height="400" alt="Captura de tela 2026-02-20 170902" src="https://github.com/user-attachments/assets/d25ffa7c-1248-40d0-a0d0-7fd08c7e94f6" />
     </td>
     <td align="center">
-      <img height="400" alt="Captura de tela 2026-02-20 172451" src="https://github.com/user-attachments/assets/def0bcee-3356-4cbc-b182-1a75f9f9a909" />
+    <img  height = "400" src="https://github.com/user-attachments/assets/be973988-df60-4f4b-bdd5-da623693c050"/>
     </td>
   </tr>
 </table>
