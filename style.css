@@ -1,0 +1,511 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+
+
+*{
+    padding: 0px;
+    margin: 0px;
+}
+
+
+:root{
+    --azul1: #044BD9;
+    --azul2: #3084F2;
+    --azul3: #5096F2;
+    --azul4: #8DB9F2;
+    --laranja: #F29E38;
+}
+
+body{
+    background: linear-gradient(to bottom, var(--azul1), var(--azul2));
+    background-repeat: no-repeat;
+}
+main{
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+main > h1{
+    text-align: center;
+    font-family: "Poppins", sans-serif;
+    color: white;
+    font-size: 3.5rem;
+    margin-bottom: 40px;
+    
+
+}
+
+main > h1 > span{
+    color: var(--laranja);
+    font-family: "Poppins", sans-serif;
+}
+
+form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    padding: 5vw;
+    width: 80vw;
+    background-color: white;
+    border-radius: 15px;
+}
+
+form > input{
+    width: 100%;
+    border-radius: 10px;
+    height: 7vh;
+    padding: 8px;
+    border: none;
+    background-color: #dadada;
+    
+    
+    
+}
+
+form > textarea{
+    width: 100%;
+    border-radius: 5px;
+    height: 20vh;
+    padding: 5px;
+    background-color: #dadada;
+}
+
+.botoes{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    gap: 40px;
+    height: 8vh;
+}
+
+.botoes > button{
+    width: 40vw;
+    height: 100%;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+    font-family: "Open sans", sans-serif;
+    font-size: 1rem;
+    background-color: var(--laranja);
+    
+    
+    
+}
+
+.classSecao2{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid blue;
+    height: 100vh;
+}
+
+.divCard{
+    display: flex;
+    flex-direction: column;
+    border-radius: 10px;
+    padding: 2vw;
+    height: 6vh;
+    background-color: white;
+    justify-content: center;
+}
+
+.divCard > p{
+    color: black;
+    font-family: "Poppins", sans-serif;
+}
+
+.classFiltro{
+    width: 80vw;
+    margin-bottom: 20px;
+    margin-top: 20px;
+    height: 5vh;
+    border-radius: 10px;
+    border: none;
+    padding: 5px;
+    background-color: #ffffff49;
+    border: 1px solid white;
+    color: white;
+    font-size: 1rem;
+    font-family: "Open Sans", sans-serif;
+}
+
+.classFiltro::placeholder{
+    color: white;
+    font-size: 1rem;
+    font-family: "Open Sans", sans-serif;
+}
+
+
+
+.classBackup{
+    width: 50vw;
+    border-radius: 15px;
+    height: 7vh;
+    border: none;
+    margin-top: 20px;
+    cursor: pointer;
+    font-family: "Open Sans", sans-serif;
+    font-size: 1rem;
+
+}
+
+.classHeader{
+    border: 2px solid black;
+    width: 80vw;
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    align-items: center;
+    justify-content: center;
+}
+
+.classHeader > p{
+    width: 100%;
+    font-size: 1.2rem;
+    font-weight: 800;
+}
+
+.classGaleria{
+    border: 3px solid var(--laranja);
+    display: flex;
+    flex-direction: column;
+    width: 80vw;
+    height: 70%;
+    gap: 15px;
+    padding: 5px;
+    border-radius: 15px;
+
+    
+}
+
+
+.classCategoria{
+    height: 100%;
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+   
+}
+
+.classCategoria > p{
+    font-size: 1.2rem;
+    color: white;
+    font-family: "Open Sans", sans-serif;
+    cursor: pointer;
+}
+
+.classQuantidade{
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+    width: 50%;
+}
+
+.classQuantidade > p{
+    font-size: 1.2rem;
+    color: white;
+}
+
+.classSecao3{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+.classDivCard{
+    height: 70vh;
+    width: 80vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.divtexto{
+    border-bottom: 4px solid var(--laranja);
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 75%;
+    border-radius: 20px;
+    margin-bottom: 10px;
+    padding: 5px;
+    box-shadow: 0px 0px 10px 1px rgba(0, 0, 0, 0.26);
+}
+
+.divtexto > p{
+    color: white;
+    font-family: "Open Sans", sans-serif;
+    font-weight: 400;
+    text-align: center;
+}
+
+.classDivGuia{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 80vw;
+    color: white;
+    font-family: "Open Sans", sans-serif;
+    height: 6vh;
+    margin-bottom: 2vh;
+    gap: 30vw;
+    
+}
+
+.classDivGuia > p{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+    height: 100%;
+    font-size: 1.30rem;
+    background-color: var(--azul3);
+    border-radius: 20px;
+    
+}
+
+
+
+.classBtnExcluir{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    width: 25%;
+    height: 100%;
+    border-radius: 10px;
+    gap: 5px;
+}
+
+.classBtnExcluir:hover{
+    background-color: rgb(255, 177, 177);
+    color: red;
+}
+
+
+
+
+.classBtnExcluir > img{
+    width: 50%;
+    height: 50%;
+    
+}
+
+.divBotoes{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    width: 80vw;
+    height: 25%;
+    gap: 8px;
+}
+
+.divBotoes > button{
+    border-radius: 20px;
+    border: none;
+    height: 9vh;
+    font-family: "Open Sans";
+}
+    
+
+
+
+.classBtnResposta{
+    background-color: var(--laranja);
+    width: 50%;
+    font-size: 1.05rem;
+   
+
+}
+
+
+
+.classBtnProximo{
+    width: 25%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.classBtnProximo > img{
+    width: 40%;
+}
+
+.classBtnVoltar{
+    width: 100%;
+}
+
+
+.classMsgExclusao{
+    background-color: var(--azul1);
+    width: 80vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 25vh;
+    border-radius: 10px;
+    position: absolute;
+    z-index: 10;
+    flex-direction: column;
+    font-family: "Open Sans", sans-serif;
+    color: white;
+    gap: 30px;
+    font-size: 1.15rem;
+}
+
+.classMsgExclusao > button{
+    width: 25vw;
+    height: 6vh;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+    background-color: var(--laranja);
+    color: white;
+
+
+}
+
+@media screen and (min-width: 992px){
+
+    main > form{
+        background-color: white;
+        width: 30vw;
+        height: 50vh;
+    }
+
+    .botoes{
+        height: 15vh;
+    }
+
+    .botoes > button:hover{
+        box-shadow: 0px 0px 5px 2px rgba(255, 166, 0, 0.621);
+    }
+
+    .classFiltro{
+        width: 70vw;
+    }
+
+    .classGaleria{
+        width: 70vw;
+        height: auto;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+
+    }
+
+    .classBackup{
+        width: 20vw;
+        transition-duration: 0.1s;
+    }
+
+    .classBackup:hover{
+        background-color: var(--laranja);
+        color: white;
+    }
+    
+    .classSecao2{
+        border: none;
+        min-height: 100vh;
+    }
+
+    .divCard{
+        transition-duration: 0.1s;
+        cursor: pointer;
+    }
+
+    .divCard:hover{
+        transform: translateY(-10px);
+        box-shadow: 0px 2px 5px 0px black;
+
+    }
+
+    .classSecao3{
+        border: none;
+        padding: none;
+    }
+
+    .classDivCard{
+        width: 70vw;
+        height: 90%;
+    }
+
+    .divtexto{
+        width: 60vw;
+        font-size: 1.5rem;
+    }
+
+    .classDivGuia{
+        width: 60vw;
+    }
+
+    .classDivGuia > p{
+        width: 25vw;
+        text-transform: uppercase;
+    }
+
+    .divBotoes{
+        width: 70vw;
+    }
+
+    .divBotoes > button{
+        cursor: pointer;
+    }
+
+
+    .classBtnResposta{
+        width: 25%;
+    }
+
+    .classBtnProximo{
+        width: 8%;
+    }
+
+    .classBtnExcluir{
+        width: 8%;
+    }
+
+    .classBtnVoltar{
+        width: 40%;
+    }
+
+    .classBtnVoltar:hover{
+        background-color: var(--laranja);
+        color: white;
+    }
+
+    .classMsgExclusao{
+        width: 40vw;
+        
+    }
+
+    
+
+}
+
+
+
+
