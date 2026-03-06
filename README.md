@@ -5,7 +5,7 @@
 
   O FocusLy resolve um problema clássico dos estudantes, reter o conteúdo que foi estudado. O usúario consegue criar, excluir e revisar flashcards.
 
-  TECNOLOGIAS UTILIZADAS: <br>
+  <h1 style = font-weight: 700>Tecnologias Utilizadas:</h1> <br>
 
    <img src="https://skillicons.dev/icons?i=html,css,javascript,git,github" /><br>
 
@@ -17,11 +17,12 @@
    <li>Github para hospedagem e repositório remoto.</li>
   </ul>
  
-  COMO ACESSAR E USAR? <br>
+  <h1 style = font-weight: 700 >Como acessar e usar?</h1> <br>
   O projeto esta hospedado de maneira gratuita com o githubpages <br>
   Acesse o link: https://gustavosiqueiramorais.github.io/Focusly/ <br>
+  <br>
 
-  FUNCIONALIDADES:
+  <h1 style = font-weight:700>Funcionalidades:</h1>
   <ul>
    <li>Criar cards: O usuário consegue criar flashcards do zero, adicionando categoria, pergunta e resposta. <br></li>
    <li>Excluir cards: O usuário consegue excluir cards que  já foram criados. <br></li>
@@ -30,7 +31,7 @@
   </ul>
   <br>
 
-  GALERIA E EVOLUÇÃO
+  <h1 style = font-weight: 700>Galeria e evolução:</h1>
   Abaixo, os registros da fase de desenvolvimento e design da aplicação.
 
   Wireframe Principal: 
@@ -40,16 +41,31 @@
 
   Primeira versão mobile: <br>
 
-  
-  <img width="525" height="728" alt="Captura de tela 2026-02-20 170902" src="https://github.com/user-attachments/assets/d25ffa7c-1248-40d0-a0d0-7fd08c7e94f6" />
-  
-  
-  <img width="360" height="685" alt="Captura de tela 2026-02-20 172451" src="https://github.com/user-attachments/assets/def0bcee-3356-4cbc-b182-1a75f9f9a909" />
+  <table align="center">
+  <tr>
+    <td align="center">
+      <img height="400" alt="Captura de tela 2026-02-20 170902" src="https://github.com/user-attachments/assets/d25ffa7c-1248-40d0-a0d0-7fd08c7e94f6" />
+    </td>
+    <td align="center">
+      <img height="400" alt="Captura de tela 2026-02-20 172451" src="https://github.com/user-attachments/assets/def0bcee-3356-4cbc-b182-1a75f9f9a909" />
+    </td>
+  </tr>
+</table>
+  <br>
+  <br>
 
   Vesão mobile final: <br>
-  <img width="525" height="728" alt="Captura de tela 2026-03-05 134731" src="https://github.com/user-attachments/assets/2c07c555-203c-46f4-bb0a-938a527479ba" />
-  
-  <img width="525" height="728" alt="Captura de tela 2026-03-03 173019" src="https://github.com/user-attachments/assets/a920106c-dbf2-4446-a404-bdd95b6a5800" />
+  <br>
+ <table align="center">
+  <tr>
+    <td>
+      <img width="525" src="https://github.com/user-attachments/assets/2c07c555-203c-46f4-bb0a-938a527479ba" alt="Captura 1">
+    </td>
+    <td>
+      <img width="525" alt="Captura de tela 2026-03-06 114311" src="https://github.com/user-attachments/assets/a52e796e-5835-440c-8a88-62d481ed7f0f" />
+    </td>
+  </tr>
+</table>
 
 Versão para Desktop final:
 
@@ -61,6 +77,20 @@ GALERIA DE CARDS: <br>
 
 TELA DE CARDS: <br>
 <img width="1891" height="898" alt="Captura de tela 2026-03-05 154027" src="https://github.com/user-attachments/assets/647be79d-cb5b-4dfe-a865-5594d61e8924" />
+
+
+## Status do Projeto: MVP (Protótipo)
+
+Este projeto é um **MVP (Minimum Viable Product)** desenvolvido para validar conceitos de manipulação de dados no Front-end. O foco principal foi a criação de uma interface funcional e responsiva utilizando JavaScript Vanila.
+
+### Conceitos Praticados:
+
+* **Lógica de Programação:** Uso de funções construtoras para organização de objetos e estrutura `try...catch` para tratamento de erros.
+* **Manipulação de Dados:** Aplicação avançada de métodos de array (`filter`, `map` e `reduce`).
+* **Persistência e Arquivos:** Gerenciamento de dados com **Web Storage API** (Local/Session Storage) e manipulação de arquivos com **Blob**.
+* **DOM & Interface:** Manipulação dinâmica do DOM (criação, exclusão e atributos) com foco em **Mobile First** e design responsivo.
+
+> **Nota:** Por ser um protótipo, o projeto pode apresentar comportamentos inesperados (bugs) que estão sendo mapeados para futuras correções.
 
 
 
